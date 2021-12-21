@@ -7,7 +7,7 @@ Block_PER=95         # 제한 사용량(%)
 ck_Part="/home"      # 체크 파티션
 logFile=~/fullBlocker/fullBlocker.log
 
-cd $logDir
+cd $logDir # 로그 경로
 
 Use=$(df -Th | grep -w $ck_Part | awk {'print $6'} | awk -F"%" {'print $1'}) # 사용량 조회
 
