@@ -3,7 +3,7 @@
 echo "" >>~/.bash_profile || echo "" >>~/.profile
 echo "######### fullBlocker #########" >>~/.bash_profile || echo "######### fullBlocker #########" >>~/.profile
 
-# Set Solution
+### Set Solution ###
 echo "== start fullBlocker config Set ==" && echo "" && echo ""
 echo "== 1- DB*AFE* / 2- Sec*e*ua*d =="
 printf "Select NUM (ex. 1): "
@@ -20,7 +20,7 @@ case $Solu in
   ;;
 esac
 
-# Set Partition
+### Set Partition ###
 echo ""
 echo "== Check Partition Setting =="
 printf "Name (ex. /home): "
@@ -28,7 +28,7 @@ read ck_Part
 
 echo "export ck_Part=$ck_Part" >>~/.bash_profile || echo "export ck_Part=$ck_Part" >>~/.profile
 
-# Set log Directory
+### Set log Directory ###
 ck=0
 while [ $ck -eq 0 ]; do
   echo ""
@@ -44,7 +44,7 @@ while [ $ck -eq 0 ]; do
   fi
 done
 
-# Set fullBlocker Directory
+### Set fullBlocker Directory ###
 ck=0
 while [ $ck -eq 0 ]; do
   echo ""
@@ -60,7 +60,7 @@ while [ $ck -eq 0 ]; do
   fi
 done
 
-# Set limit Percent (%)
+### Set limit Percent (%) ###
 echo ""
 echo "== Set limit Percent (%) =="
 printf "Block_PER (ex. 90): "
@@ -68,12 +68,13 @@ read Block_PER
 
 echo "export Block_PER=$Block_PER" >>~/.bash_profile || echo "export Block_PER=$Block_PER" >>~/.profile
 
+### Set Crontab ###
 echo ""
 echo "== Setting Crontab (/etc/crontab)..."
 echo "== set time : 30 00 * * * root"
 echo "" >>/etc/crontab
 echo "############## fullBlocker ##############" >>/etc/crontab
-echo "30 00 * * * root $fullBlocker_Dir./fullBlocker.sh" >>/etc/crontab
+echo "30 00 * * * root $fullBlocker_Dir./fullBlocker.sh" >>/etc/crontab # 00:30 실행
 echo "############## fullBlocker ##############" >>/etc/crontab
 echo "== Restarting Crontab Service..."
 systemctl restart crond || systemctl restart cron || service crond restart || service cron restart
