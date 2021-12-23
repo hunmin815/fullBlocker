@@ -34,7 +34,7 @@ if [ $Use -ge $Block_PER ]; then
 
   echo $(du -sh ./$DEL) && du -sh ./$DEL >>$logFile 2>&1 # 솔루션 로그 용량 측정
 
-  echo "$DEL Deleting ..." && echo "$DEL Deleting ..." >>$logFile 2>&1
+  echo "$year_Dir/$DEL log Deleting ..." && echo "$year_Dir/$DEL log Deleting ..." >>$logFile 2>&1
 
   rm -rf ./$DEL >>$logFile 2>&1 # 솔루션 로그 삭제
   echo "Delete Ok" && echo "Delete Ok" >>$logFile 2>&1
